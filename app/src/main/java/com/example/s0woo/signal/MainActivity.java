@@ -52,9 +52,18 @@ public class MainActivity extends AppCompatActivity{
                     0 );
         }
 
+        mMapView.setCompassMode(true);
+        gps = new TMapGpsManager(MainActivity.this);
+        gps.setMinTime(1000);
+        gps.setMinDistance(5);
+        gps.setProvider(gps.NETWORK_PROVIDER);
+        //gps.setProvider(TMapGpsManager.GPS_PROVIDER);
+        gps.OpenGps();
+
         btnLct.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                /*
                 mMapView.setCompassMode(true);
                 gps = new TMapGpsManager(MainActivity.this);
                 gps.setMinTime(1000);
@@ -62,6 +71,7 @@ public class MainActivity extends AppCompatActivity{
                 gps.setProvider(gps.NETWORK_PROVIDER);
                 //gps.setProvider(TMapGpsManager.GPS_PROVIDER);
                 gps.OpenGps();
+                */
 
                 TMapPoint point = gps.getLocation();
                 //TMapPoint point = mMapView.getCenterPoint();
